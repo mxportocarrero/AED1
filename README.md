@@ -5,7 +5,9 @@ Este es el repositorio que cree para que podamos compartir los avances del proye
 Dejo algunas caracteristicas
 
 Ver. de Qt 5.5.1 (versiones cercanas deberian trabajar normal)
+
 Ver. de GCC 4.9 (usaremos C++11)
+
 lo compile en Ubuntu 14.04
 
 INSTRUCCIONES:
