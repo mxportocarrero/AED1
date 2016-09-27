@@ -13,14 +13,13 @@ public:
 public:
     NodoLista(Palabra d)
     {
-        m_dato.idioma_1 = d.idioma_1;
-        m_dato.idioma_2 = d.idioma_2;
+        m_dato = d;
     }
 
     NodoLista(string a, string b)
     {
-        m_dato.idioma_1 = a;
-        m_dato.idioma_2 = b;
+        Palabra p(a,b);
+        m_dato = p;
     }
 };
 

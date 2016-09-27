@@ -20,6 +20,8 @@ public:
 private slots:
     void on_FileBrowserButton_clicked();
 
+    void on_EjecutarButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -16,6 +16,7 @@ public:
     }
     void pushBack(Palabra d);
     bool buscar(Palabra d);
+
 };
 
 #endif // LISTAENLAZADA_H
