@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    palabra.cpp \
+    palabralista.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    palabra.h \
+    palabralista.h
 
 FORMS    += mainwindow.ui

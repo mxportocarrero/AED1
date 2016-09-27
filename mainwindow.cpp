@@ -16,6 +16,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_FileBrowserButton_clicked()
 {
-    QString filename = QFileDialog::getOpenFileName(this, tr("Abrir archivo"), "/home", tr("TXT Files (*.txt)"));
+    QString filename = QFileDialog::getOpenFileName(this, tr("Abrir archivo"), "/home", tr("txt Files (*.txt)"));
     ui->FilePathEdit->setText(filename);
 }
