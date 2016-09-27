@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     palabra.cpp \
-    palabralista.cpp
+    listaenlazada.cpp \
+    nodolista.cpp
 
 HEADERS  += mainwindow.h \
     palabra.h \
-    palabralista.h
+    listaenlazada.h \
+    nodolista.h
 
 FORMS    += mainwindow.ui
