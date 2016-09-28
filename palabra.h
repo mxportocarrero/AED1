@@ -22,6 +22,10 @@ public:
     friend bool operator != (const Palabra &p1,const Palabra &p2);
     friend bool operator > (const Palabra &p1,const Palabra &p2);
     friend bool operator < (const Palabra &p1,const Palabra &p2);
+    string getString()
+    {
+        return idioma_1;
+    }
 };
 
 #endif // PALABRA_H
