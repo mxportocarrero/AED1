@@ -196,23 +196,7 @@
      </layout>
     </item>
    </layout>
-   <zorder>PalabraEdit</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>FilePathEdit</zorder>
-   <zorder>RadioBusquedaSpin</zorder>
-   <zorder>EstructuraBox</zorder>
-   <zorder>TraduccionTable</zorder>
-   <zorder>FileBrowserButton</zorder>
-   <zorder>FilePathEdit</zorder>
    <zorder></zorder>
-   <zorder>verticalSpacer</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_5</zorder>
-   <zorder>CargaEdit</zorder>
-   <zorder>BusquedaEdit</zorder>
-   <zorder>RAMEdit</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

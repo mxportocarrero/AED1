@@ -13,8 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    palabra.cpp \
+    listaenlazada.cpp \
+    nodolista.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    palabra.h \
+    listaenlazada.h \
+    nodolista.h
 
 FORMS    += mainwindow.ui
+
+CONFIG += c++11
