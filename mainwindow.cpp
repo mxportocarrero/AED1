@@ -84,14 +84,17 @@ void MainWindow::busqLista(ListaEnlazada L ,string texto)
     NodoLista *p = L.getHead();
     while(p)
     {
-        if(Levinstein(p->m_dato.getString(),texto) <= (ui->RadioBusquedaSpin->text()).toInt())
+        string a1 = p->m_dato.getString();
+        int levi = Levinstein(a1,texto);
+        int tmp = (ui->RadioBusquedaSpin->text()).toInt();
+        if(levi <= tmp)
         {
             //do someting
             //en este caso imprimir los textos en la q table
-            ui->TraduccionTable->setItem(rowCount,0,new QTableWidgetItem("Hola"));
-            ui->TraduccionTable->setItem(rowCount,1,new QTableWidgetItem("Jelou"));
+            ui->TraduccionTable->setItem(rowCount,0,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString())));
+            ui->TraduccionTable->setItem(rowCount,1,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString2())));
+            rowCount++;
         }
-        rowCount++;
         p = p->m_pSig;
     }
 }
