@@ -15,14 +15,15 @@ void ListaEnlazada::pushBack(Palabra d)
     }
 }
 
-bool ListaEnlazada::buscar(Palabra d)
+Palabra ListaEnlazada::buscar(Palabra d)
 {
     NodoLista *p = m_phead;
     while(p)
     {
-        if(p->m_dato == d) return true;
+        if(p->m_dato == d) return p->m_dato;
         p = p->m_pSig;
     }
-    return false;
+    Palabra vacia("","");
+    return vacia;
 }
 

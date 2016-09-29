@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     palabra.cpp \
     listaenlazada.cpp \
-    nodolista.cpp
+    nodolista.cpp \
+    extras.cpp
 
 HEADERS  += mainwindow.h \
     palabra.h \
     listaenlazada.h \
-    nodolista.h
+    nodolista.h \
+    extras.h
 
 FORMS    += mainwindow.ui
 
