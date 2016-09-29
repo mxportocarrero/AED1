@@ -1,5 +1,8 @@
 #include "extras.h"
 
+
+#include "nodolista.h"
+
 int min3(int a, int b, int c)
  {
      if (a<=b and a<=c) return a;
@@ -24,4 +27,6 @@ int Levinstein(string A, string B)
  //cout << A[0]; BR;
  //return A.size()+B.size();
    return D[As][Bs];
- }
+}
+
+

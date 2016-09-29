@@ -16,6 +16,15 @@ public:
     }
     void pushBack(Palabra d);
     Palabra buscar(Palabra d);
+    bool isEmpty()
+    {
+        if (m_phead = m_plast = nullptr) return true;
+        return false;
+    }
+    NodoLista * getHead()
+    {
+        return m_phead;
+    }
 
 };
 
