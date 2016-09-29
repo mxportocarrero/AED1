@@ -25,6 +25,9 @@ using std::ostringstream;
 //Estructuras
 #include "listaenlazada.h"
 
+//funciones adicionales
+#include "extras.h"
+
 
 using std::string;
 
@@ -51,6 +54,10 @@ private:
 
     //el numero de resultados obtenidos de la busqueda
     unsigned int coincidencias = 0;
+
+//funciones privadas para la busqueda segun levinstein
+private:
+    void busqLista(ListaEnlazada, QString);
 };
 
 #endif // MAINWINDOW_H
