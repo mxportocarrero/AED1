@@ -33,7 +33,7 @@ void MainWindow::on_FileBrowserButton_clicked()
 
 void MainWindow::on_EjecutarButton_clicked()
 {
-    string FilePath = (ui->FilePathEdit->text()).toUtf8().constData();
+    string FilePath = (ui->FilePathEdit->text()).toStdString();
 
     clock_t inicio, fin;
     inicio = clock();
@@ -68,5 +68,9 @@ void MainWindow::on_EjecutarButton_clicked()
     strs << tiempo;
     string str = strs.str();
     ui->CargaEdit->setText(QString::fromStdString(str));
+
+    string busqueda = (ui->PalabraEdit->text()).toStdString();
+    Palabra busq(busqueda, "");
+    Palabra found = L1.buscar(busq);
 
 }

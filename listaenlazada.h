@@ -15,7 +15,7 @@ public:
         m_plast=nullptr;
     }
     void pushBack(Palabra d);
-    bool buscar(Palabra d);
+    Palabra buscar(Palabra d);
 
 };
 
