@@ -73,23 +73,25 @@ void MainWindow::on_EjecutarButton_clicked()
     string str = strs.str();
     ui->CargaEdit->setText(QString::fromStdString(str));
 
-    QString palBuscada = ui->BusquedaEdit->text();
+    string palBuscada = (ui->PalabraEdit->text()).toStdString();
     busqLista(L1,palBuscada);
 
 }
 
-void MainWindow::busqLista(ListaEnlazada L ,QString str)
+void MainWindow::busqLista(ListaEnlazada L ,string texto)
 {
     if(L.isEmpty()) return;
     NodoLista *p = L.getHead();
-    string texto = str.toStdString();
     while(p)
     {
-        if(Levinstein(p,texto)< (ui->RadioBusquedaSpin->text()).toInt())
+        if(Levinstein(p->m_dato.getString(),texto) <= (ui->RadioBusquedaSpin->text()).toInt())
         {
             //do someting
             //en este caso imprimir los textos en la q table
+            ui->TraduccionTable->setItem(rowCount,0,new QTableWidgetItem("Hola"));
+            ui->TraduccionTable->setItem(rowCount,1,new QTableWidgetItem("Jelou"));
         }
+        rowCount++;
         p = p->m_pSig;
     }
 }

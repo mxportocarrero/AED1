@@ -55,9 +55,12 @@ private:
     //el numero de resultados obtenidos de la busqueda
     unsigned int coincidencias = 0;
 
+    //numero de filas donde escribira
+    unsigned int rowCount = 0;
+
 //funciones privadas para la busqueda segun levinstein
 private:
-    void busqLista(ListaEnlazada, QString);
+    void busqLista(ListaEnlazada, string);
 };
 
 #endif // MAINWINDOW_H
