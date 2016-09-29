@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "extras.h"
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringList tableHeaders;
     tableHeaders<<"Español"<<"Ingles";
     ui->TraduccionTable->setHorizontalHeaderLabels(tableHeaders);
+    ui->TraduccionTable->setItem(0,0,new QTableWidgetItem("Hola"));
+    ui->TraduccionTable->setItem(0,1,new QTableWidgetItem("Hello"));
 }
 
 MainWindow::~MainWindow()
@@ -69,8 +73,28 @@ void MainWindow::on_EjecutarButton_clicked()
     string str = strs.str();
     ui->CargaEdit->setText(QString::fromStdString(str));
 
-    string busqueda = (ui->PalabraEdit->text()).toStdString();
-    Palabra busq(busqueda, "");
-    Palabra found = L1.buscar(busq);
+    string palBuscada = (ui->PalabraEdit->text()).toStdString();
+    busqLista(L1,palBuscada);
 
+}
+
+void MainWindow::busqLista(ListaEnlazada L ,string texto)
+{
+    if(L.isEmpty()) return;
+    NodoLista *p = L.getHead();
+    while(p)
+    {
+        string a1 = p->m_dato.getString();
+        int levi = Levinstein(a1,texto);
+        int tmp = (ui->RadioBusquedaSpin->text()).toInt();
+        if(levi <= tmp)
+        {
+            //do someting
+            //en este caso imprimir los textos en la q table
+            ui->TraduccionTable->setItem(rowCount,0,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString())));
+            ui->TraduccionTable->setItem(rowCount,1,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString2())));
+            rowCount++;
+        }
+        p = p->m_pSig;
+    }
 }

@@ -26,6 +26,10 @@ public:
     {
         return idioma_1;
     }
+    string getString2()
+    {
+        return idioma_2;
+    }
 };
 
 #endif // PALABRA_H
