@@ -4,7 +4,7 @@
 template <class T>
 class NodoAB
 {
-private:
+public:
     T m_Dato;
     NodoAB<T> *m_pSon[2];
 public:

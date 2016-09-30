@@ -26,3 +26,16 @@ bool ListaEnlazada::buscar(Palabra d)
     return false;
 }
 
+void ListaEnlazada::limpiar()
+{
+    NodoLista *p = m_phead;
+    while(m_phead != m_plast)
+    {
+        m_phead = p->m_pSig;
+        delete p;
+        p = m_phead;
+    }
+    delete m_phead;
+    m_phead = m_plast = nullptr;
+}
+

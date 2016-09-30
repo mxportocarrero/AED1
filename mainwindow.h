@@ -24,6 +24,7 @@ using std::ostringstream;
 
 //Estructuras
 #include "listaenlazada.h"
+#include "arbolbinario.h"
 
 //funciones adicionales
 #include "extras.h"
@@ -52,11 +53,15 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    //el numero de resultados obtenidos de la busqueda
-    unsigned int coincidencias = 0;
-
-    //numero de filas donde escribira
+    //numero de filas donde escribira. tb es el numero de resultados
     unsigned int rowCount = 0;
+
+    //Estructuras de datos
+    ListaEnlazada LE;
+    ArbolBinario<Palabra> AB;
+
+    //otros
+    short unsigned int ejecutarCount= 0;
 
 //funciones privadas para la busqueda segun levinstein
 private:

@@ -26,6 +26,8 @@ public:
         return m_phead;
     }
 
+    void limpiar();
+
 };
 
 #endif // LISTAENLAZADA_H

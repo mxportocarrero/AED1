@@ -2,6 +2,7 @@
 #define ARBOLBINARIO_H
 #include <QStack>
 #include "nodoab.h"
+#include "palabra.h"
 
 template <class T>
 class ArbolBinario
@@ -14,11 +15,12 @@ public:
     ArbolBinario()
     {
         m_pRoot = m_Current = nullptr;
-        m_Path = new QStack<NodoAB<T>*>();
+        //m_Path = new QStack<NodoAB<T>*>();
     }
     ~ArbolBinario()
     {
         if (m_pRoot) m_pRoot->KillNodo();
+        m_pRoot = nullptr;
     }
     void begin();
     bool end();

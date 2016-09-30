@@ -54,6 +54,7 @@ bool ArbolBinario<T>::Find(T d, NodoAB<T> **&p)
         if ((*p)->m_Dato == d) return true;
         p = &((*p)->m_pSon[(*p)->m_Dato < d]);
     }
+    return false;
 }
 
 template <class T>
@@ -63,3 +64,5 @@ void ArbolBinario<T>::AddNodo(T d)
     if (Find(d, q)) return;
     *q = new NodoAB<T>(d);
 }
+
+template class ArbolBinario<Palabra>;

@@ -12,15 +12,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //borrar
-    coincidencias = 10;
-    ui->TraduccionTable->setRowCount(coincidencias);
     ui->TraduccionTable->setColumnCount(2);
+    ui->TraduccionTable->setRowCount(rowCount);
 
     QStringList tableHeaders;
     tableHeaders<<"Español"<<"Ingles";
     ui->TraduccionTable->setHorizontalHeaderLabels(tableHeaders);
-    ui->TraduccionTable->setItem(0,0,new QTableWidgetItem("Hola"));
-    ui->TraduccionTable->setItem(0,1,new QTableWidgetItem("Hello"));
+    ui->TraduccionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 }
 
 MainWindow::~MainWindow()
@@ -38,12 +37,24 @@ void MainWindow::on_FileBrowserButton_clicked()
 void MainWindow::on_EjecutarButton_clicked()
 {
     string FilePath = (ui->FilePathEdit->text()).toStdString();
+    string palBuscada = (ui->PalabraEdit->text()).toStdString();
+
+    if(FilePath == "" || palBuscada == "")
+    {
+        ui->statusLabel->setText("Complete todos los campos");
+        return;
+    }
+
+    if(ejecutarCount != 0)
+    {
+        LE.limpiar();//limpia la estructura
+        rowCount = 0;
+        ui->TraduccionTable->setRowCount(rowCount);
+    }
 
     clock_t inicio, fin;
     inicio = clock();
     // inicio
-
-    ListaEnlazada L1;
 
     ifstream archivo (FilePath);
     string linea;
@@ -57,7 +68,7 @@ void MainWindow::on_EjecutarButton_clicked()
              istringstream iss(linea);
              vector<string> words {istream_iterator<string>{iss}, istream_iterator<string>{}};
              Palabra tmp(words[0],words[1]);
-             L1.pushBack(tmp);
+             LE.pushBack(tmp);
           }
        }
        archivo.close();
@@ -73,14 +84,26 @@ void MainWindow::on_EjecutarButton_clicked()
     string str = strs.str();
     ui->CargaEdit->setText(QString::fromStdString(str));
 
-    string palBuscada = (ui->PalabraEdit->text()).toStdString();
-    busqLista(L1,palBuscada);
+    clock_t inicio2,fin2;
+    inicio2 = clock();
+    //inicio
+    busqLista(LE,palBuscada);
+    //fin
+    fin2 = clock();
+    tiempo = 0;
+    tiempo = fin2-inicio2;
+    tiempo = tiempo/CLOCKS_PER_SEC;
+
+    ostringstream strs2;
+    strs2 << tiempo;
+    string str2 = strs2.str();
+    ui->BusquedaEdit->setText(QString::fromStdString(str2));
 
 }
 
 void MainWindow::busqLista(ListaEnlazada L ,string texto)
 {
-    if(L.isEmpty()) return;
+    if(L.isEmpty() || texto == "") return;
     NodoLista *p = L.getHead();
     while(p)
     {
@@ -91,10 +114,12 @@ void MainWindow::busqLista(ListaEnlazada L ,string texto)
         {
             //do someting
             //en este caso imprimir los textos en la q table
+            ui->TraduccionTable->setRowCount(rowCount+1);
             ui->TraduccionTable->setItem(rowCount,0,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString())));
             ui->TraduccionTable->setItem(rowCount,1,new QTableWidgetItem(QString::fromStdString(p->m_dato.getString2())));
             rowCount++;
         }
         p = p->m_pSig;
     }
+    ejecutarCount++;
 }
